@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --gold: #ffc107;
+    --text-light: #e0e0e0;
+    --text-muted: #aaaaaa;
+    --border-radius: 12px;
+}
+
+body {
+    background-color: black !important;
+    color: var(--text-light) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.main-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* Sidebar Component Styles */
+
+
+
+
+@media (max-width: 992px) {
+    .profile-card {
+        margin-bottom: 30px;
+    }
+    
+    .content-section {
+        padding: 30px 20px;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+    }
+}

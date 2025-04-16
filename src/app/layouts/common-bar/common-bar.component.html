@@ -1,0 +1,74 @@
+
+        @for(data of personalDetails ;track data){
+
+        }
+        <div class="profile-card">
+            <div class="profile-section">
+                <div class="avatar-container">
+                    <img src="assets/img/profile-pic.png" alt="Profile Avatar">
+                </div>
+                <h1 class="name">Jagadesh Jayaraj</h1>
+                <span class="badge designation-colour">Software Developer</span>
+            </div>
+            
+            <div class="profile-divider"></div>
+            @for(data of personalDetails ;track data){
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">EMAIL</div>
+                            <div class="contact-value">{{data.email}}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-phone-fill"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">PHONE</div>
+                            <div class="contact-value">{{data.phoneNo}}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-cake2-fill"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">BIRTHDAY</div>
+                            <div class="contact-value">{{data.birthday}}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <div class="contact-label">LOCATION</div>
+                            <div class="contact-value">{{data.location}}</div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+   
+            <div class="d-flex justify-content-center mb-5">
+                <button class="btn btn-outline-warning" >Download Resume</button>
+            </div>

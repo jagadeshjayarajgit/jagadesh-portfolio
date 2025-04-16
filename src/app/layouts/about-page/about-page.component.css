@@ -1,0 +1,102 @@
+/* Content Component Styles */
+
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.gold-bar {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.main-text {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.service-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.service-icon i {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.service-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service-description {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.testimonial-section {
+    margin-top: 60px;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #333;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.testimonial-name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.service-margin{
+   margin-top: 20px;
+}
+
+.img-size{
+    max-width: 100px;
+    border-radius: 20px;
+}
+
+.designation-colour{
+    background-color: #10a64a !important;
+}
+
+.tech-icon {
+    max-height: 60px;
+    margin-bottom: 10px;
+}
+
+.tech-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

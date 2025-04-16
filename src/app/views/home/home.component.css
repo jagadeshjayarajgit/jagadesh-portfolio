@@ -1,0 +1,28 @@
+.content-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: 100%;
+}
+
+.content-section {
+    padding: 40px;
+}
+
+
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 25px;
+    cursor: pointer;
+    font: inherit;
+    transition: color 0.3s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    color: var(--gold);
+}

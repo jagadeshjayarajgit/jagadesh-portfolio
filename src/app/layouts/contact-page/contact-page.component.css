@@ -1,0 +1,22 @@
+.contact-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.05);
+  }
+  
+  .dark-input {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    border: 1px solid var(--text-muted);
+  }
+  
+  .dark-input::placeholder {
+    color: var(--text-muted);
+  }
+  
+  .dark-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 5px var(--gold);
+  }
+  

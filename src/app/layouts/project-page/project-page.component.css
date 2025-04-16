@@ -1,0 +1,23 @@
+.project-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 20px;
+    height: 100%;
+  }
+  
+  .project-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color:white
+  }
+  .project-description{
+    color: var( --text-light);
+    font-size: 14px;
+  }
+  .tech-icon {
+    max-height: 60px;
+    max-width: 50px;
+    margin-bottom: 10px;
+}
