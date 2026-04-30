@@ -7,6 +7,11 @@
     --border-radius: 12px;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     background-color: black !important;
     color: var(--text-light) !important;
@@ -15,8 +20,17 @@ body {
 
 .main-container {
     max-width: 1400px;
+    height: calc(100vh - 80px);
     margin: 40px auto;
     padding: 0 15px;
+}
+
+.main-container > .row {
+    height: 100%;
+}
+
+.main-container > .row > [class*="col-"] {
+    height: 100%;
 }
 
 /* Sidebar Component Styles */

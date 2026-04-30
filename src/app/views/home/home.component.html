@@ -6,20 +6,22 @@
 
 <button class="nav-btn" 
         [ngClass]="{'active': activeId === 2}" 
-        (click)="changePage(2)">Projects</button>
+        (click)="changePage(2)">Career SnapShot</button>
 
 <button class="nav-btn" 
         [ngClass]="{'active': activeId === 3}" 
         (click)="changePage(3)">Contact Page</button>
     </div>
 
-    @if(activeId ===  1){
-        <app-about-page></app-about-page>
-    }
-    @else if (activeId ===  2) {
-        <app-project-page></app-project-page>
-    }
-    @else if (activeId === 3) {
-        <app-contact-page></app-contact-page>
-    }
+    <div class="page-content">
+        @if(activeId ===  1){
+            <app-about-page></app-about-page>
+        }
+        @else if (activeId ===  2) {
+           <app-career-snapshot></app-career-snapshot>
+        }
+        @else if (activeId === 3) {
+            <app-contact-page></app-contact-page>
+        }
+    </div>
 </div>

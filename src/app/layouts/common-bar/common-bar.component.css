@@ -1,8 +1,20 @@
 .profile-card {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 193, 7, 0.3) transparent;
+}
+
+.profile-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.profile-card::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 193, 7, 0.3);
+    border-radius: 4px;
 }
 
 .profile-section {

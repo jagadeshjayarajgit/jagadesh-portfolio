@@ -1,5 +1,5 @@
 
-    <div class="content-section p-5">
+    <div class="content-section p-4">
         <h2 class="section-title">About Me</h2>
         <span class="gold-bar"></span>
         
@@ -9,70 +9,43 @@
         <p class="main-text">
             I’m skilled in Java, Spring Boot, Angular, JavaScript, HTML, and CSS, and I’m constantly looking to grow as both a developer and an innovator in the digital space.
         </p>
-        <h2 class="section-title mt-5">Career Snapshot</h2>
+        <h2 class="section-title mt-5">Career Summary</h2>
         <span class="gold-bar"></span>
-        
-        <div class="row">
-            <div class="col-md-6">
-                <div class="service-card">
-                    <div class="d-flex justify-content-end">
-                        <span class="badge designation-colour">2024 - Present</span> 
+
+        <div class="timeline">
+            @for (item of timeline; track item.title) {
+                <div class="timeline-item">
+                    <div class="timeline-dot"
+                        [ngClass]="item.type === 'work' ? 'dot-work' : 'dot-edu'">
+                        <img [src]="item.logo" [alt]="item.logoAlt" class="dot-logo">
                     </div>
-                  
-                       <img src="assets/img/drlogo.jpeg" class="img-size" alt="AgarwalsLogo">
-                
-                    <h3 class="service-title service-margin">Software Developer</h3>
-                    <p class="service-description">Currently Working a Software Developer at Dr. Agarwals Eye Hospital, Corporate Office </p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="service-card">
-                    <div class="d-flex justify-content-end">
-                        <span class="badge designation-colour">2020 - 2024</span> 
+                    <div class="timeline-content ms-4 ms-md-5">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                            <span class="badge"
+                                [ngClass]="item.type === 'work' ? 'bg-success' : 'bg-primary'">
+                                {{ item.period }}
+                            </span>
+                            <span class="small">{{ item.subtitle }}</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">{{ item.title }}</h5>
+                        <p class="small mb-0">{{ item.description }}</p>
                     </div>
-                       
-                        <img  src="assets/img/srmLogo.png" class="img-size" alt="srmLogo">
-                   
-                    <h3 class="service-title service-margin">Under Graduate</h3>
-                    <p class="service-description">I completed my undergraduate studies at SRM University and was awarded a B.Tech degree in Computer Science and Engineering with First Class Distinction.</p>      
                 </div>
-            </div>
-            
+            }
         </div>
         
-        <div class="testimonial-section">
-            <h2 class="section-title">TechStack</h2>
+        <div class="mt-5">
+            <h2 class="section-title">Tech Stack</h2>
             <span class="gold-bar"></span>
-          
-            <div class="container mt-4">
-              <div class="row justify-content-center align-items-center">
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/java.png" class="img-fluid tech-icon" alt="Java">
-                  <p class="tech-label">Java</p>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/icons8-spring-boot-48.png" class="img-fluid tech-icon" alt="Spring Boot">
-                  <p class="tech-label">Spring Boot</p>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/programing.png" class="img-fluid tech-icon" alt="Angular">
-                  <p class="tech-label">Angular</p>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/java-script.png" class="img-fluid tech-icon" alt="JavaScript">
-                  <p class="tech-label">JavaScript</p>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/htmlicon.png" class="img-fluid tech-icon" alt="HTML">
-                  <p class="tech-label">HTML</p>
-                </div>
-                <div class="col-4 col-sm-3 col-md-2 mb-4">
-                  <img src="assets/img/css-3.png" class="img-fluid tech-icon" alt="CSS">
-                  <p class="tech-label">CSS</p>
-                </div>
-              </div>
+
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                @for (tech of techStack; track tech.name) {
+                    <div class="tech-chip d-flex align-items-center gap-2">
+                        <img [src]="tech.icon" [alt]="tech.name" class="tech-chip-icon">
+                        <span class="tech-chip-name">{{ tech.name }}</span>
+                    </div>
+                }
             </div>
-          </div>
+        </div>
           
     </div>
