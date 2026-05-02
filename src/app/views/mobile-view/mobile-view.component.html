@@ -1,0 +1,114 @@
+<div class="mobile-wrapper">
+
+  <!-- Top Header -->
+  <header class="mobile-header">
+    <div class="d-flex align-items-center gap-2">
+      <div class="header-avatar">
+        <img src="assets/img/profile-pic.png" alt="Profile">
+      </div>
+      <span class="header-name">Jagadesh J</span>
+    </div>
+    <button class="hamburger-btn" (click)="toggleDrawer()" aria-label="Open menu">
+      <i class="bi" [ngClass]="drawerOpen ? 'bi-x-lg' : 'bi-list'"></i>
+    </button>
+  </header>
+
+  <!-- Backdrop overlay -->
+  <div class="overlay" [class.show]="drawerOpen" (click)="closeDrawer()"></div>
+
+  <!-- Profile Drawer (slides in from right) -->
+  <aside class="profile-drawer" [class.open]="drawerOpen">
+
+    <div class="drawer-profile text-center p-4 pt-5">
+      <div class="drawer-avatar mx-auto mb-3">
+        <img src="assets/img/profile-pic.png" alt="Jagadesh Jayaraj">
+      </div>
+      <h2 class="drawer-name">{{ personalDetails.name }}</h2>
+      <span class="badge designation-badge mb-3">{{ personalDetails.designation }}</span>
+    </div>
+
+    <div class="drawer-divider"></div>
+
+    <div class="drawer-contact p-3">
+      <div class="contact-item-mobile">
+        <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+        <div>
+          <div class="contact-label">EMAIL</div>
+          <div class="contact-value">{{ personalDetails.email }}</div>
+        </div>
+      </div>
+      <div class="contact-item-mobile">
+        <div class="contact-icon"><i class="bi bi-phone-fill"></i></div>
+        <div>
+          <div class="contact-label">PHONE</div>
+          <div class="contact-value">{{ personalDetails.phoneNo }}</div>
+        </div>
+      </div>
+      <div class="contact-item-mobile">
+        <div class="contact-icon"><i class="bi bi-cake2-fill"></i></div>
+        <div>
+          <div class="contact-label">BIRTHDAY</div>
+          <div class="contact-value">{{ personalDetails.birthday }}</div>
+        </div>
+      </div>
+      <div class="contact-item-mobile">
+        <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+        <div>
+          <div class="contact-label">LOCATION</div>
+          <div class="contact-value">{{ personalDetails.location }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-3 pb-3">
+      <button class="btn btn-outline-warning w-100">Download Resume</button>
+    </div>
+
+    <div class="social-icons-mobile d-flex justify-content-center gap-3 pb-5">
+      <a href="https://github.com/" target="_blank" class="social-icon-mobile">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://linkedin.com/" target="_blank" class="social-icon-mobile">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/" target="_blank" class="social-icon-mobile">
+        <i class="bi bi-twitter-x"></i>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- Scrollable Content Area -->
+  <main class="mobile-content">
+    @if (activeTab === 'about') {
+      <app-about-page></app-about-page>
+    } @else if (activeTab === 'career') {
+      <app-career-snapshot></app-career-snapshot>
+    } @else if (activeTab === 'contact') {
+      <app-contact-page></app-contact-page>
+    } @else if (activeTab === 'socials') {
+      <app-socials></app-socials>
+    }
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="bottom-nav-btn" [class.active]="activeTab === 'about'" (click)="setTab('about')">
+      <i class="bi bi-person-fill"></i>
+      <span>About</span>
+    </button>
+    <button class="bottom-nav-btn" [class.active]="activeTab === 'career'" (click)="setTab('career')">
+      <i class="bi bi-briefcase-fill"></i>
+      <span>Career</span>
+    </button>
+    <button class="bottom-nav-btn" [class.active]="activeTab === 'contact'" (click)="setTab('contact')">
+      <i class="bi bi-envelope-fill"></i>
+      <span>Contact</span>
+    </button>
+    <button class="bottom-nav-btn" [class.active]="activeTab === 'socials'" (click)="setTab('socials')">
+      <i class="bi bi-share-fill"></i>
+      <span>Socials</span>
+    </button>
+  </nav>
+
+</div>

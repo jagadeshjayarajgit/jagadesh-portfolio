@@ -1,1 +1,40 @@
-<p>socials works!</p>
+<div class="content-section p-4">
+
+  <h2 class="section-title">Let's Connect</h2>
+  <span class="gold-bar"></span>
+  <p class="main-text">Find me across the web — code, career, or just a quick hello.</p>
+
+  <div class="socials-grid">
+    @for (social of socials; track social.platform; let i = $index) {
+      <a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-card">
+
+        <!-- Watermark index -->
+        <span class="card-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+
+        <!-- Icon + tag row -->
+        <div class="card-top">
+          <div class="card-icon">
+            <i class="bi {{ social.icon }}"></i>
+          </div>
+          <span class="card-tag">{{ social.tag }}</span>
+        </div>
+
+        <h5 class="card-platform">{{ social.platform }}</h5>
+        <span class="card-handle">{{ social.handle }}</span>
+        <p class="card-desc">{{ social.description }}</p>
+
+        <div class="card-cta">
+          <span>Visit</span>
+          <i class="bi bi-arrow-up-right"></i>
+        </div>
+
+      </a>
+    }
+  </div>
+
+  <div class="social-footer mt-5">
+    <i class="bi bi-chat-heart-fill"></i>
+    <span>Always open to interesting conversations — don't be a stranger!</span>
+  </div>
+
+</div>

@@ -1,14 +1,17 @@
 
-<div class="main-container">
+<!-- Desktop layout (lg and above) -->
+<div class="main-container d-none d-lg-block">
     <div class="row">
         <div class="col-lg-3" id="profile-sidebar">
            <app-common-bar></app-common-bar>
         </div>
-        
-        <!-- Component 2: Content Details -->
         <div class="col-lg-9" id="content-details">
-    
-<app-home></app-home>
+            <app-home></app-home>
         </div>
     </div>
+</div>
+
+<!-- Mobile layout (below lg) -->
+<div class="d-lg-none">
+    <app-mobile-view></app-mobile-view>
 </div>

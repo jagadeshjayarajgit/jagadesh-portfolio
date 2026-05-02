@@ -12,6 +12,13 @@ html, body {
     overflow: hidden;
 }
 
+@media (max-width: 991.98px) {
+    html, body {
+        overflow: auto;
+        height: auto;
+    }
+}
+
 body {
     background-color: black !important;
     color: var(--text-light) !important;

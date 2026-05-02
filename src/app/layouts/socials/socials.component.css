@@ -1,0 +1,187 @@
+.section-title { font-size: 16px; font-weight: 700; color: #e0e0e0; }
+
+.gold-bar {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffc107;
+  margin-bottom: 25px;
+}
+
+.main-text { color: #aaaaaa; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+
+/* ── Grid ── */
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 16px;
+}
+
+/* ── Card ── */
+.social-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px 18px 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.social-card:hover {
+  border-color: rgba(255, 193, 7, 0.45);
+  background: rgba(255, 193, 7, 0.03);
+  transform: translateY(-4px);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Bottom gold line that expands on hover */
+.social-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: #ffc107;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.2s, left 0.25s, right 0.25s;
+}
+
+.social-card:hover::after {
+  opacity: 0.7;
+  left: 12%;
+  right: 12%;
+}
+
+/* ── Watermark number ── */
+.card-number {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 52px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.social-card:hover .card-number {
+  color: rgba(255, 193, 7, 0.07);
+}
+
+/* ── Icon + tag ── */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.social-card:hover .card-icon {
+  background: rgba(255, 193, 7, 0.08);
+  border-color: rgba(255, 193, 7, 0.25);
+}
+
+.card-icon i {
+  font-size: 22px;
+  color: #aaaaaa;
+  transition: color 0.2s;
+}
+
+.social-card:hover .card-icon i { color: #ffc107; }
+
+.card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 193, 7, 0.65);
+  background: rgba(255, 193, 7, 0.08);
+  border-radius: 50px;
+  padding: 3px 10px;
+}
+
+/* ── Text ── */
+.card-platform {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin-bottom: 3px;
+  transition: color 0.2s;
+}
+
+.social-card:hover .card-platform { color: #ffc107; }
+
+.card-handle {
+  font-size: 12px;
+  color: #666;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.65;
+  flex-grow: 1;
+  margin-bottom: 18px;
+  transition: color 0.2s;
+}
+
+.social-card:hover .card-desc { color: #999; }
+
+/* ── CTA ── */
+.card-cta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.card-cta i { font-size: 13px; }
+
+.social-card:hover .card-cta {
+  color: #ffc107;
+  gap: 8px;
+}
+
+/* ── Footer ── */
+.social-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #555;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.social-footer i {
+  font-size: 18px;
+  color: rgba(255, 193, 7, 0.45);
+}

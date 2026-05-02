@@ -1,0 +1,256 @@
+/* ── Mobile wrapper ── */
+.mobile-wrapper {
+  background-color: #121212;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Top header ── */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #333;
+  flex-shrink: 0;
+}
+
+.header-avatar img {
+  width: 120%;
+  height: auto;
+  margin-left: -2px;
+}
+
+.header-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  color: #ffc107;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.hamburger-btn:hover {
+  opacity: 0.8;
+}
+
+/* ── Backdrop overlay ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Profile drawer ── */
+.profile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 82%;
+  max-width: 320px;
+  height: 100%;
+  background-color: #1e1e1e;
+  z-index: 300;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 193, 7, 0.3) transparent;
+}
+
+.profile-drawer.open {
+  right: 0;
+}
+
+.profile-drawer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.profile-drawer::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 193, 7, 0.3);
+  border-radius: 4px;
+}
+
+.drawer-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.drawer-avatar img {
+  width: 115%;
+  height: auto;
+}
+
+.drawer-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.designation-badge {
+  background-color: #10a64a !important;
+  font-size: 13px;
+  padding: 5px 12px;
+}
+
+.drawer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 4px 0 8px;
+}
+
+/* ── Contact items in drawer ── */
+.contact-item-mobile {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 36px;
+  height: 36px;
+  background-color: #121212;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.contact-icon i {
+  color: #ffc107;
+  font-size: 16px;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: #aaaaaa;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.contact-value {
+  font-size: 13px;
+  color: #e0e0e0;
+  word-break: break-all;
+}
+
+/* ── Social icons in drawer ── */
+.social-icons-mobile {
+  margin-top: 16px;
+}
+
+.social-icon-mobile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon-mobile:hover {
+  background-color: #ffc107;
+  color: #000;
+}
+
+/* ── Main scrollable content ── */
+.mobile-content {
+  margin-top: 60px;
+  margin-bottom: 65px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Bottom navigation bar ── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+}
+
+.bottom-nav-btn {
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 6px 20px;
+  border-radius: 10px;
+  transition: color 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.bottom-nav-btn i {
+  font-size: 22px;
+}
+
+.bottom-nav-btn span {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.bottom-nav-btn.active {
+  color: #ffc107;
+}
+
+.bottom-nav-btn.active i {
+  transform: scale(1.15);
+}
+
+.bottom-nav-btn:hover {
+  color: #ffc107;
+}
