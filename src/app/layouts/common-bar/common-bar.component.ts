@@ -15,9 +15,16 @@ personalDetails = [
     designation: 'Software Engineer',
     location: 'Chennai, India',
     phoneNo:'9841735345',
-    email:'itsjagajayaraj@gmail.com',
+    email:'jagadeshjayaraj11@gmail.com',
     birthday:'11-Nov-2002'
       
   }
 ]
+
+downloadResume() {
+  const link = document.createElement('a');
+  link.href = 'assets/img/JAGADESH RESUME.pdf';
+  link.download = 'Jagadesh_Resume.pdf';
+  link.click();
+}
 }

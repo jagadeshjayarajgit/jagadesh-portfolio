@@ -1,24 +1,87 @@
-<div class="container mt-5 p-3">
-    <div class="card contact-card p-4">
-      <h3 class="text-light mb-3">Get in Touch</h3>
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label text-light">Name</label>
-          <input type="text" class="form-control dark-input" id="name" placeholder="Your Name">
-        </div>
-  
-        <div class="mb-3">
-          <label for="email" class="form-label text-light">Email</label>
-          <input type="email" class="form-control dark-input" id="email" placeholder="you@example.com">
-        </div>
-  
-        <div class="mb-3">
-          <label for="message" class="form-label text-light">Message</label>
-          <textarea class="form-control dark-input" id="message" rows="4" placeholder="Type your message here..."></textarea>
-        </div>
-  
-        <button type="submit" class="btn btn-outline-warning">Send Message</button>
-      </form>
+<div class="p-4">
+  <h2 class="section-title">Get in Touch</h2>
+  <span class="gold-bar"></span>
+
+  <!-- Quick contact actions -->
+  <div class="quick-grid mb-5">
+
+    <div class="quick-card">
+      <div class="quick-icon"><i class="bi bi-envelope-fill"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">Email</span>
+        <span class="quick-value">{{ email }}</span>
+      </div>
+      <button class="quick-btn" (click)="copy('email', email)">
+        @if (copied === 'email') {
+          <i class="bi bi-check-lg"></i> Copied!
+        } @else {
+          <i class="bi bi-copy"></i> Copy
+        }
+      </button>
+    </div>
+
+    <div class="quick-card">
+      <div class="quick-icon"><i class="bi bi-phone-fill"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">Phone</span>
+        <span class="quick-value">{{ phone }}</span>
+      </div>
+      <button class="quick-btn" (click)="copy('phone', phone)">
+        @if (copied === 'phone') {
+          <i class="bi bi-check-lg"></i> Copied!
+        } @else {
+          <i class="bi bi-copy"></i> Copy
+        }
+      </button>
+    </div>
+
+    <a class="quick-card" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+      <div class="quick-icon whatsapp"><i class="bi bi-whatsapp"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">WhatsApp</span>
+        <span class="quick-value">Chat directly</span>
+      </div>
+      <span class="quick-btn"><i class="bi bi-box-arrow-up-right"></i> Open</span>
+    </a>
+
+    <a class="quick-card" [href]="linkedin" target="_blank" rel="noopener noreferrer">
+      <div class="quick-icon linkedin"><i class="bi bi-linkedin"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">LinkedIn</span>
+        <span class="quick-value">Connect professionally</span>
+      </div>
+      <span class="quick-btn"><i class="bi bi-box-arrow-up-right"></i> Visit</span>
+    </a>
+
+  </div>
+
+  <!-- Message form -->
+  <h2 class="section-title">Send a Message</h2>
+  <span class="gold-bar"></span>
+  <p class="sub-text">Fill in the form — it opens your mail app pre-filled and ready to send.</p>
+
+  <div class="msg-form">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <input #nameRef type="text" class="form-control dark-input" placeholder="Your Name">
+      </div>
+      <div class="col-md-6">
+        <input #subjectRef type="text" class="form-control dark-input" placeholder="Subject">
+      </div>
+      <div class="col-12">
+        <textarea #msgRef class="form-control dark-input" rows="4" placeholder="Your message..."></textarea>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-outline-warning"
+          (click)="sendMail(nameRef.value, subjectRef.value, msgRef.value)">
+          @if (sent) {
+            <i class="bi bi-check-lg me-1"></i> Mail app opened!
+          } @else {
+            <i class="bi bi-send-fill me-1"></i> Open in Mail
+          }
+        </button>
+      </div>
     </div>
   </div>
-  
+
+</div>

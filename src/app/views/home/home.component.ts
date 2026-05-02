@@ -6,11 +6,12 @@ import { ContactPageComponent } from "../../layouts/contact-page/contact-page.co
 import { ProjectPageComponent } from "../../layouts/project-page/project-page.component";
 import { CareerSnapshotComponent } from "../../layouts/career-snapshot/career-snapshot.component";
 import { SocialsComponent } from "../../layouts/socials/socials.component";
+import { TerminalViewComponent } from "../../layouts/terminal-view/terminal-view.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AboutPageComponent, CommonModule, ContactPageComponent, ProjectPageComponent, CareerSnapshotComponent, SocialsComponent],
+  imports: [AboutPageComponent, CommonModule, ContactPageComponent, ProjectPageComponent, CareerSnapshotComponent, SocialsComponent, TerminalViewComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

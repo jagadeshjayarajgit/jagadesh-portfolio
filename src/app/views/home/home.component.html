@@ -1,22 +1,16 @@
 <div class="content-card">
     <div class="d-flex justify-content-end p-3 nav-menu ">
-        <button class="nav-btn"
-        [ngClass]="{'active': activeId === 1}"
-        (click)="changePage(1)">About</button>
+        <button class="nav-btn" [ngClass]="{'active': activeId === 1}" (click)="changePage(1)">About</button>
 
-<button class="nav-btn"
-        [ngClass]="{'active': activeId === 2}"
-        (click)="changePage(2)">Career SnapShot</button>
+        <button class="nav-btn" [ngClass]="{'active': activeId === 2}" (click)="changePage(2)">Career SnapShot</button>
 
-<button class="nav-btn"
-        [ngClass]="{'active': activeId === 3}"
-        (click)="changePage(3)">Contact Page</button>
+        <button class="nav-btn" [ngClass]="{'active': activeId === 4}" (click)="changePage(4)">Socials</button>
 
-<button class="nav-btn"
-        [ngClass]="{'active': activeId === 4}"
-        (click)="changePage(4)">Socials</button>
+        <button class="nav-btn" [ngClass]="{'active': activeId === 5}" (click)="changePage(5)">Terminal</button>
+
+        <button class="nav-btn" [ngClass]="{'active': activeId === 3}" (click)="changePage(3)">Contact Page</button>
     </div>
-
+    
     <div class="page-content">
         @if(activeId ===  1){
             <app-about-page></app-about-page>
@@ -29,6 +23,9 @@
         }
         @else if (activeId === 4) {
             <app-socials></app-socials>
+        }
+        @else if (activeId === 5) {
+            <app-terminal-view></app-terminal-view>
         }
     </div>
 </div>

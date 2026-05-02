@@ -8,9 +8,6 @@
     @for (social of socials; track social.platform; let i = $index) {
       <a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-card">
 
-        <!-- Watermark index -->
-        <span class="card-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-
         <!-- Icon + tag row -->
         <div class="card-top">
           <div class="card-icon">
@@ -31,10 +28,4 @@
       </a>
     }
   </div>
-
-  <div class="social-footer mt-5">
-    <i class="bi bi-chat-heart-fill"></i>
-    <span>Always open to interesting conversations — don't be a stranger!</span>
-  </div>
-
 </div>

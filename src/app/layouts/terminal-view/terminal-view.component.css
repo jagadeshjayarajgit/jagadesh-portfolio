@@ -1,0 +1,89 @@
+.section-title { font-size: 16px; font-weight: 700; color: #e0e0e0; }
+
+.gold-bar {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffc107;
+  margin-bottom: 20px;
+}
+
+.sub-text { color: #aaaaaa; font-size: 14px; margin-bottom: 20px; }
+.sub-text code { color: #ffc107; background: rgba(255,193,7,0.08); padding: 1px 6px; border-radius: 4px; }
+
+/* ── Terminal wrapper ── */
+.terminal {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 193, 7, 0.18);
+  border-radius: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13.5px;
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+  cursor: text;
+  box-shadow: 0 0 24px rgba(255, 193, 7, 0.06);
+}
+
+/* ── Top bar ── */
+.t-bar {
+  background: #161616;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px 10px 0 0;
+  flex-shrink: 0;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green  { background: #28c840; }
+
+.t-title { color: #444; font-size: 12px; margin-left: 6px; }
+
+/* ── Scrollable body ── */
+.t-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,193,7,0.2) transparent;
+}
+
+.t-body::-webkit-scrollbar { width: 4px; }
+.t-body::-webkit-scrollbar-thumb { background: rgba(255,193,7,0.2); border-radius: 4px; }
+
+/* ── Lines ── */
+.t-line { line-height: 1.7; white-space: pre-wrap; word-break: break-all; min-height: 1.7em; }
+.t-line.out { color: #ffc107; }
+.t-line.cmd { color: #e0e0e0; }
+.t-line.err { color: #ff5555; }
+.hint { color: #ffc107; }
+
+/* ── Prompt ── */
+.prompt { color: rgba(255, 193, 7, 0.55); user-select: none; }
+
+/* ── Input row ── */
+.t-input-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.t-input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #e0e0e0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13.5px;
+  flex: 1;
+  caret-color: #ffc107;
+}
+
+.t-input::placeholder { color: #2a2a2a; }

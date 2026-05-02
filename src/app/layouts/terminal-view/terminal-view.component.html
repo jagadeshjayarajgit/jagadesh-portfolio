@@ -1,0 +1,36 @@
+<div class="p-4">
+  <h2 class="section-title">Terminal</h2>
+  <span class="gold-bar"></span>
+  <p class="sub-text">Interact with my portfolio the dev way. Type <code>help</code> to start.</p>
+
+  <div class="terminal" (click)="focusInput()">
+    <!-- Output history -->
+    <div class="t-body" #termBody>
+      @for (line of history; track $index) {
+        <div class="t-line {{ line.kind }}">
+          @if (line.kind === 'cmd') {
+            <span class="prompt">jagadesh&#64;portfolio:~$&nbsp;</span>{{ line.text }}
+          } @else if (line.kind === 'err') {
+            bash: {{ line.text }}: command not found. Type <span class="hint">help</span>
+          } @else {
+            {{ line.text }}
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Input row -->
+    <div class="t-input-row">
+      <span class="prompt">jagadesh&#64;portfolio:~$&nbsp;</span>
+      <input
+        #cmdInput
+        class="t-input"
+        (keydown)="onKey($event, cmdInput)"
+        placeholder="type a command..."
+        autocomplete="off"
+        spellcheck="false"
+        autofocus>
+    </div>
+
+  </div>
+</div>
