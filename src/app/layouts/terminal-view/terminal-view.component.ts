@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PERSONAL } from '../../data/personal.data';
 
 interface Line {
   kind: 'cmd' | 'out' | 'err';
@@ -48,13 +49,13 @@ export class TerminalViewComponent implements OnInit, AfterViewChecked {
       'Frontend   :  Angular',
       'Database   :  MySQL',
     ],
-    '--contact':  ['+91 9841735345'],
-    '--email':    ['itsjagajayaraj@gmail.com'],
-    '--location': ['Chennai, India'],
+    '--contact':  [`+91 ${PERSONAL.phone}`],
+    '--email':    [PERSONAL.email],
+    '--location': [PERSONAL.location],
     '--birthday': ['11 November 2002'],
     '--resume':   ['Downloading resume...'],
-    '--github':   ['https://github.com/jagadesh-j'],
-    '--linkedin': ['https://linkedin.com/in/jagadesh'],
+    '--github':   [PERSONAL.github],
+    '--linkedin': [PERSONAL.linkedin],
   };
 
   ngOnInit() {
@@ -105,7 +106,6 @@ export class TerminalViewComponent implements OnInit, AfterViewChecked {
       return;
     }
 
-    // accept both "--contact" and "contact"
     const key = this.COMMANDS[cmd] ? cmd : '--' + cmd;
     const output = this.COMMANDS[key];
 
@@ -126,8 +126,8 @@ export class TerminalViewComponent implements OnInit, AfterViewChecked {
 
   private triggerDownload() {
     const link = document.createElement('a');
-    link.href = 'assets/img/JAGADESH RESUME.pdf';
-    link.download = 'Jagadesh_Resume.pdf';
+    link.href = PERSONAL.resume;
+    link.download = PERSONAL.resumeDownloadName;
     link.click();
   }
 }

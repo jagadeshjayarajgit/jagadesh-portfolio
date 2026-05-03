@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 interface CareerFile {
@@ -8,8 +8,8 @@ interface CareerFile {
 
 interface CareerFolder {
   name: string;
-  icon: string;
   files: CareerFile[];
+  expanded: boolean;
 }
 
 interface Company {
@@ -18,8 +18,8 @@ interface Company {
   period: string;
   logo: string | null;
   initials: string;
-  description: string;
   folders: CareerFolder[];
+  expanded: boolean;
 }
 
 @Component({
@@ -29,14 +29,10 @@ interface Company {
   templateUrl: './career-snapshot.component.html',
   styleUrl: './career-snapshot.component.css'
 })
-export class CareerSnapshotComponent {
+export class CareerSnapshotComponent implements OnInit {
 
-  @ViewChild('careerModal') modalRef!: ElementRef;
-  private bsModal: any;
-
-  selectedCompany: Company | null = null;
-  selectedFolder: CareerFolder | null = null;
   selectedFile: CareerFile | null = null;
+  selectedCompany: Company | null = null;
 
   companies: Company[] = [
     {
@@ -45,11 +41,11 @@ export class CareerSnapshotComponent {
       period: 'Apr 2024 – Present',
       logo: 'assets/img/drlogo.jpeg',
       initials: 'DA',
-      description: 'Building scalable healthcare web apps, PWAs, and REST APIs serving 500+ healthcare professionals at the corporate office.',
+      expanded: true,
       folders: [
         {
           name: 'Projects',
-          icon: 'bi-folder2',
+          expanded: true,
           files: [
             {
               name: 'PWA – Patient Report',
@@ -71,7 +67,7 @@ export class CareerSnapshotComponent {
         },
         {
           name: 'Technical Work',
-          icon: 'bi-folder2',
+          expanded: true,
           files: [
             {
               name: 'System Migration',
@@ -95,11 +91,11 @@ export class CareerSnapshotComponent {
       period: 'Jan 2024 – Apr 2024',
       logo: null,
       initials: 'BL',
-      description: 'Internship focused on Java fundamentals, OOP, SOLID principles, and hands-on microservices development with Spring Boot.',
+      expanded: true,
       folders: [
         {
           name: 'Work Done',
-          icon: 'bi-folder2',
+          expanded: true,
           files: [
             {
               name: 'OOP & SOLID Principles',
@@ -115,23 +111,23 @@ export class CareerSnapshotComponent {
     }
   ];
 
-  openModal(company: Company): void {
-    this.selectedCompany = company;
-    this.selectedFolder = company.folders[0] ?? null;
-    this.selectedFile = null;
-
-    if (!this.bsModal) {
-      this.bsModal = new (window as any).bootstrap.Modal(this.modalRef.nativeElement);
-    }
-    this.bsModal.show();
+  ngOnInit() {
+    const firstCompany = this.companies[0];
+    const firstFile = firstCompany?.folders[0]?.files[0] ?? null;
+    this.selectedFile = firstFile;
+    this.selectedCompany = firstCompany ?? null;
   }
 
-  selectFolder(folder: CareerFolder): void {
-    this.selectedFolder = folder;
-    this.selectedFile = null;
+  toggleCompany(company: Company) {
+    company.expanded = !company.expanded;
   }
 
-  selectFile(file: CareerFile): void {
+  toggleFolder(folder: CareerFolder) {
+    folder.expanded = !folder.expanded;
+  }
+
+  selectFile(file: CareerFile, company: Company) {
     this.selectedFile = file;
+    this.selectedCompany = company;
   }
 }

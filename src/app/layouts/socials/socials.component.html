@@ -1,31 +1,126 @@
-<div class="content-section p-4">
+<div class="connect-page p-4">
 
-  <h2 class="section-title">Let's Connect</h2>
-  <span class="gold-bar"></span>
-  <p class="main-text">Find me across the web — code, career, or just a quick hello.</p>
+  <!-- ── Section: Social Links ── -->
+  <h2 class="section-title fade-in-up">Connect</h2>
+  <span class="gold-bar fade-in-up delay-1"></span>
+  <p class="sub-text fade-in-up delay-1">Find me across the web — code, career, or just a quick hello.</p>
 
-  <div class="socials-grid">
-    @for (social of socials; track social.platform; let i = $index) {
-      <a [href]="social.url" target="_blank" rel="noopener noreferrer" class="social-card">
+  <div class="social-grid">
+    @for (s of socials; track s.platform; let i = $index) {
+      <a [href]="s.url" target="_blank" rel="noopener noreferrer"
+         class="social-card fade-in-up"
+         [class]="'delay-' + (i + 2)"
+         [style.--platform-color]="s.color"
+         [style.--platform-glow]="s.glow">
 
-        <!-- Icon + tag row -->
-        <div class="card-top">
+        <div class="card-top-bar"></div>
+
+        <div class="card-inner">
           <div class="card-icon">
-            <i class="bi {{ social.icon }}"></i>
+            <i class="bi {{ s.icon }}"></i>
           </div>
-          <span class="card-tag">{{ social.tag }}</span>
-        </div>
 
-        <h5 class="card-platform">{{ social.platform }}</h5>
-        <span class="card-handle">{{ social.handle }}</span>
-        <p class="card-desc">{{ social.description }}</p>
+          <div class="card-meta">
+            <h4 class="card-platform">{{ s.platform }}</h4>
+            <span class="card-handle">{{ s.handle }}</span>
+          </div>
 
-        <div class="card-cta">
-          <span>Visit</span>
-          <i class="bi bi-arrow-up-right"></i>
+          <p class="card-desc">{{ s.description }}</p>
+
+          <div class="card-footer">
+            <span>Visit profile</span>
+            <i class="bi bi-arrow-up-right card-arrow"></i>
+          </div>
         </div>
 
       </a>
     }
   </div>
+
+  <!-- ── Section: Get In Touch ── -->
+  <h2 class="section-title mt-5 fade-in-up delay-3">Get in Touch</h2>
+  <span class="gold-bar fade-in-up delay-3"></span>
+
+  <div class="quick-grid fade-in-up delay-4">
+
+    <div class="quick-card">
+      <div class="quick-icon"><i class="bi bi-envelope-fill"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">Email</span>
+        <span class="quick-value">{{ email }}</span>
+      </div>
+      <button class="quick-btn" (click)="copy('email', email)">
+        @if (copied === 'email') {
+          <i class="bi bi-check-lg"></i> Copied!
+        } @else {
+          <i class="bi bi-copy"></i> Copy
+        }
+      </button>
+    </div>
+
+    <div class="quick-card">
+      <div class="quick-icon"><i class="bi bi-phone-fill"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">Phone</span>
+        <span class="quick-value">{{ phone }}</span>
+      </div>
+      <button class="quick-btn" (click)="copy('phone', phone)">
+        @if (copied === 'phone') {
+          <i class="bi bi-check-lg"></i> Copied!
+        } @else {
+          <i class="bi bi-copy"></i> Copy
+        }
+      </button>
+    </div>
+
+    <a class="quick-card" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+      <div class="quick-icon whatsapp"><i class="bi bi-whatsapp"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">WhatsApp</span>
+        <span class="quick-value">Chat directly</span>
+      </div>
+      <span class="quick-btn"><i class="bi bi-box-arrow-up-right"></i> Open</span>
+    </a>
+
+    <a class="quick-card" [href]="linkedin" target="_blank" rel="noopener noreferrer">
+      <div class="quick-icon linkedin"><i class="bi bi-linkedin"></i></div>
+      <div class="quick-info">
+        <span class="quick-label">LinkedIn</span>
+        <span class="quick-value">Connect professionally</span>
+      </div>
+      <span class="quick-btn"><i class="bi bi-box-arrow-up-right"></i> Visit</span>
+    </a>
+
+  </div>
+
+  <!-- ── Message form ── -->
+  <div class="msg-section fade-in-up delay-5">
+    <h3 class="msg-title">Send a Message</h3>
+    <p class="sub-text">Fill in the form — it opens your mail app pre-filled and ready to send.</p>
+
+    <div class="msg-form">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input #nameRef type="text" class="form-control dark-input" placeholder="Your Name">
+        </div>
+        <div class="col-md-6">
+          <input #subjectRef type="text" class="form-control dark-input" placeholder="Subject">
+        </div>
+        <div class="col-12">
+          <textarea #msgRef class="form-control dark-input" rows="4" placeholder="Your message..."></textarea>
+        </div>
+        <div class="col-12">
+          <button class="send-btn"
+            (click)="sendMail(nameRef.value, subjectRef.value, msgRef.value)">
+            @if (sent) {
+              <i class="bi bi-check-lg"></i> Mail app opened!
+            } @else {
+              <i class="bi bi-send-fill"></i> Open in Mail
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

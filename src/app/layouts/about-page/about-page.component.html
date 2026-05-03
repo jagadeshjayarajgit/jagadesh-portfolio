@@ -1,20 +1,52 @@
+<div class="content-section">
 
-    <div class="content-section p-4">
-        <h2 class="section-title">About Me</h2>
+    <!-- Stats strip -->
+    <div class="stats-strip fade-in-up">
+        <div class="stat-item">
+            <span class="stat-num">1+</span>
+            <span class="stat-lbl">Year of XP</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">4+</span>
+            <span class="stat-lbl">Projects shipped</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">500+</span>
+            <span class="stat-lbl">Healthcare pros served</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num">6</span>
+            <span class="stat-lbl">Technologies</span>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="fade-in-up delay-1">
+        <h2 class="section-title mt-4">About Me</h2>
         <span class="gold-bar"></span>
-        
         <p class="main-text">
-            I am a Software Developer currently working as a fresher at  Dr. Agarwals Eye Hospital, Corporate Office , where I’m gaining hands-on experience in building scalable web applications. Alongside my full-time role, I’m also running an e-commerce side hustle that allows me to explore entrepreneurship and tech-driven business strategies. 
+            I'm a Software Developer at Dr. Agarwal's Eye Hospital (Corporate Office), where I build the web
+            applications that keep a large hospital network running — from patient records to inventory to
+            role-based approvals. On the side, I'm exploring e-commerce and entrepreneurship, because shipping
+            software for a business you own hits different.
         </p>
         <p class="main-text">
-            I’m skilled in Java, Spring Boot, Angular, JavaScript, HTML, and CSS, and I’m constantly looking to grow as both a developer and an innovator in the digital space.
+            My stack is Java &amp; Spring Boot on the backend, Angular on the front. I care about clean
+            architecture, readable code, and products that actually get used.
         </p>
-        <h2 class="section-title mt-5">Career Summary</h2>
+    </div>
+
+    <!-- Career Summary -->
+    <div class="fade-in-up delay-2">
+        <h2 class="section-title mt-4">Career Summary</h2>
         <span class="gold-bar"></span>
 
         <div class="timeline">
-            @for (item of timeline; track item.title) {
-                <div class="timeline-item">
+            @for (item of timeline; track item.title; let i = $index) {
+                <div class="timeline-item fade-in-up" [class]="'delay-' + (i + 3)">
                     <div class="timeline-dot"
                         [ngClass]="item.type === 'work' ? 'dot-work' : 'dot-edu'">
                         <img [src]="item.logo" [alt]="item.logoAlt" class="dot-logo">
@@ -25,27 +57,29 @@
                                 [ngClass]="item.type === 'work' ? 'bg-success' : 'bg-primary'">
                                 {{ item.period }}
                             </span>
-                            <span class="small">{{ item.subtitle }}</span>
+                            <span class="small text-muted">{{ item.subtitle }}</span>
                         </div>
                         <h5 class="fw-semibold mb-1">{{ item.title }}</h5>
-                        <p class="small mb-0">{{ item.description }}</p>
+                        <p class="small mb-0 text-muted">{{ item.description }}</p>
                     </div>
                 </div>
             }
         </div>
-        
-        <div class="mt-5">
-            <h2 class="section-title">Tech Stack</h2>
-            <span class="gold-bar"></span>
-
-            <div class="d-flex flex-wrap gap-3 mt-4">
-                @for (tech of techStack; track tech.name) {
-                    <div class="tech-chip d-flex align-items-center gap-2">
-                        <img [src]="tech.icon" [alt]="tech.name" class="tech-chip-icon">
-                        <span class="tech-chip-name">{{ tech.name }}</span>
-                    </div>
-                }
-            </div>
-        </div>
-          
     </div>
+
+    <!-- Tech Stack -->
+    <div class="fade-in-up delay-4 mt-4">
+        <h2 class="section-title">Tech Stack</h2>
+        <span class="gold-bar"></span>
+
+        <div class="d-flex flex-wrap gap-3 mt-3">
+            @for (tech of techStack; track tech.name) {
+                <div class="tech-chip d-flex align-items-center gap-2">
+                    <img [src]="tech.icon" [alt]="tech.name" class="tech-chip-icon">
+                    <span class="tech-chip-name">{{ tech.name }}</span>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

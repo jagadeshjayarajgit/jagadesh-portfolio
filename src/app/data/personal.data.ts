@@ -1,0 +1,16 @@
+export const PERSONAL = {
+  name: 'Jagadesh Jayaraj',
+  shortName: 'Jagadesh',
+  designation: 'Software Developer',
+  location: 'Chennai, India',
+  phone: '9841735345',
+  email: 'jagadeshjayaraj11@gmail.com',
+  birthday: '11 Nov 2002',
+  github: 'https://github.com/jagadesh-j',
+  linkedin: 'https://linkedin.com/in/jagadesh',
+  whatsapp: 'https://wa.me/919841735345',
+  twitter: 'https://twitter.com/jagadeshj',
+  leetcode: 'https://leetcode.com/jagadeshj',
+  resume: 'assets/img/JAGADESH RESUME.pdf',
+  resumeDownloadName: 'Jagadesh_Resume.pdf',
+} as const;

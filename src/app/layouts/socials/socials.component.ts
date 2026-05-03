@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PERSONAL } from '../../data/personal.data';
 
-export interface SocialLink {
+interface SocialLink {
   platform: string;
   handle: string;
   icon: string;
   description: string;
   url: string;
-  tag: string;
+  color: string;
+  glow: string;
 }
 
 @Component({
@@ -18,40 +20,68 @@ export interface SocialLink {
   styleUrl: './socials.component.css'
 })
 export class SocialsComponent {
+
   socials: SocialLink[] = [
     {
       platform: 'GitHub',
       handle: '@jagadesh-j',
       icon: 'bi-github',
-      description: 'Explore my repositories, open-source contributions and side projects.',
-      url: 'https://github.com/',
-      tag: 'Code'
+      description: 'Browse my repos, open-source work and side projects.',
+      url: PERSONAL.github,
+      color: '#c9d1d9',
+      glow: 'rgba(201, 209, 217, 0.15)',
     },
     {
       platform: 'LinkedIn',
       handle: 'Jagadesh Jayaraj',
       icon: 'bi-linkedin',
-      description: 'Connect with me professionally — opportunities, collabs & networking.',
-      url: 'https://linkedin.com/',
-      tag: 'Professional'
+      description: 'Connect with me professionally — opportunities & collabs.',
+      url: PERSONAL.linkedin,
+      color: '#0a66c2',
+      glow: 'rgba(10, 102, 194, 0.2)',
     },
     {
       platform: 'Twitter / X',
       handle: '@jagadeshj',
       icon: 'bi-twitter-x',
-      description: 'Dev thoughts, tech takes and the occasional random musing.',
-      url: 'https://twitter.com/',
-      tag: 'Updates'
+      description: 'Dev thoughts, tech takes and the occasional musing.',
+      url: PERSONAL.twitter,
+      color: '#e7e9ea',
+      glow: 'rgba(231, 233, 234, 0.12)',
     },
     {
       platform: 'LeetCode',
       handle: '@jagadeshj',
       icon: 'bi-code-slash',
-      description: 'My problem-solving journey — DSA, competitive programming solutions.',
-      url: 'https://leetcode.com/',
-      tag: 'DSA'
-    }
+      description: 'My DSA journey — problem solving and algorithm practice.',
+      url: PERSONAL.leetcode,
+      color: '#ffa116',
+      glow: 'rgba(255, 161, 22, 0.2)',
+    },
   ];
 
-  hoveredIndex: number | null = null;
+  /* ── Contact logic ── */
+  copied: 'email' | 'phone' | null = null;
+  sent = false;
+
+  readonly email = PERSONAL.email;
+  readonly phone = PERSONAL.phone;
+  readonly whatsapp = PERSONAL.whatsapp;
+  readonly linkedin = PERSONAL.linkedin;
+
+  copy(type: 'email' | 'phone', value: string) {
+    navigator.clipboard.writeText(value).then(() => {
+      this.copied = type;
+      setTimeout(() => (this.copied = null), 2000);
+    });
+  }
+
+  sendMail(name: string, subject: string, message: string) {
+    if (!name.trim() && !message.trim()) return;
+    const sub = encodeURIComponent(subject || 'Hello from your portfolio');
+    const body = encodeURIComponent(`Hi Jagadesh,\n\n${message}\n\nFrom: ${name}`);
+    window.open(`mailto:${this.email}?subject=${sub}&body=${body}`);
+    this.sent = true;
+    setTimeout(() => (this.sent = false), 3000);
+  }
 }

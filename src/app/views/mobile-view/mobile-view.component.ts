@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutPageComponent } from '../../layouts/about-page/about-page.component';
 import { CareerSnapshotComponent } from '../../layouts/career-snapshot/career-snapshot.component';
-import { ContactPageComponent } from '../../layouts/contact-page/contact-page.component';
 import { SocialsComponent } from '../../layouts/socials/socials.component';
 import { TerminalViewComponent } from '../../layouts/terminal-view/terminal-view.component';
+import { ProjectPageComponent } from '../../layouts/project-page/project-page.component';
+import { AiToolsComponent } from '../../layouts/ai-tools/ai-tools.component';
+import { PERSONAL } from '../../data/personal.data';
 
-type ActiveTab = 'about' | 'career' | 'contact' | 'socials' | 'terminal';
+type ActiveTab = 'about' | 'career' | 'socials' | 'terminal' | 'projects' | 'ai';
 
 @Component({
   selector: 'app-mobile-view',
   standalone: true,
-  imports: [CommonModule, AboutPageComponent, CareerSnapshotComponent, ContactPageComponent, SocialsComponent, TerminalViewComponent],
+  imports: [CommonModule, AboutPageComponent, CareerSnapshotComponent, SocialsComponent, TerminalViewComponent, ProjectPageComponent, AiToolsComponent],
   templateUrl: './mobile-view.component.html',
   styleUrl: './mobile-view.component.css'
 })
@@ -19,14 +21,7 @@ export class MobileViewComponent {
   activeTab: ActiveTab = 'about';
   drawerOpen = false;
 
-  personalDetails = {
-    name: 'Jagadesh Jayaraj',
-    designation: 'Software Developer',
-    location: 'Chennai, India',
-    phoneNo: '9841735345',
-    email: 'jagadeshjayaraj11@gmail.com',
-    birthday: '11-Nov-2002'
-  };
+  readonly p = PERSONAL;
 
   setTab(tab: ActiveTab) {
     this.activeTab = tab;
@@ -43,8 +38,8 @@ export class MobileViewComponent {
 
   downloadResume() {
     const link = document.createElement('a');
-    link.href = 'assets/img/JAGADESH RESUME.pdf';
-    link.download = 'Jagadesh_Resume.pdf';
+    link.href = PERSONAL.resume;
+    link.download = PERSONAL.resumeDownloadName;
     link.click();
   }
 }

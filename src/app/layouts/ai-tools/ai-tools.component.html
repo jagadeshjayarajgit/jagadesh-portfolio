@@ -1,0 +1,77 @@
+<div class="p-4">
+
+  <!-- Header -->
+  <div class="ai-header fade-in-up">
+    <div class="ai-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Actively augmenting my workflow
+    </div>
+    <h2 class="section-title">AI Stack</h2>
+    <span class="gold-bar"></span>
+    <p class="sub-text">
+      The tools I use to ship smarter, debug faster, and think more clearly —
+      not to replace the craft, but to level it up.
+    </p>
+  </div>
+
+  <!-- Category legend -->
+  <div class="legend fade-in-up delay-1">
+    <span class="legend-chip code">Code</span>
+    <span class="legend-chip research">Research</span>
+    <span class="legend-chip design">Design</span>
+  </div>
+
+  <!-- Tool cards grid -->
+  <div class="tools-grid">
+    @for (tool of tools; track tool.name; let i = $index) {
+      <div class="tool-card fade-in-up"
+           [class]="'delay-' + (i + 2)"
+           [style.--tool-color]="tool.color"
+           [style.--tool-glow]="tool.glow">
+
+        <!-- Accent bar -->
+        <div class="card-accent-bar"></div>
+
+        <div class="card-body-inner">
+
+          <!-- Top row: logo + meta -->
+          <div class="card-head">
+            <div class="tool-logo">{{ tool.initials }}</div>
+            <div class="tool-meta">
+              <span class="tool-name">{{ tool.name }}</span>
+              <span class="tool-tagline">{{ tool.tagline }}</span>
+            </div>
+            @if (tool.active) {
+              <span class="active-dot" title="Currently active"></span>
+            }
+          </div>
+
+          <!-- Category + usage row -->
+          <div class="badge-row">
+            <span class="cat-badge"
+                  [style.color]="categoryColors[tool.category]"
+                  [style.background]="'rgba(0,0,0,0.0)'"
+                  [style.borderColor]="categoryColors[tool.category] + '44'">
+              {{ tool.category }}
+            </span>
+            <span class="usage-badge" [ngClass]="usageBadgeClass(tool.usage)">
+              {{ tool.usage }}
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="tool-desc">{{ tool.description }}</p>
+
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <!-- Footer note -->
+  <div class="ai-footer fade-in-up delay-6">
+    <i class="bi bi-stars"></i>
+    <span>These tools assist the process — every architecture decision, line of code, and final ship is still mine.</span>
+  </div>
+
+</div>

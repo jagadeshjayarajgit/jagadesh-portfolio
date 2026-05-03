@@ -1,98 +1,74 @@
-<div class="p-4">
-    <h2 class="section-title fw-bold">Career Snapshot</h2>
-    <span class="gold-bar"></span>
-    <div class="row g-4 mt-1">
-        @for (company of companies; track company.name) {
-            <div class="col-md-6">
-                <div class="company-card h-100 d-flex flex-column rounded-3 p-4">
+<div class="explorer-wrap">
 
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        @if (company.logo) {
-                            <img [src]="company.logo" [alt]="company.name" class="company-logo rounded-3">
-                        } @else {
-                            <div class="company-initials rounded-3 fw-bold d-flex align-items-center justify-content-center flex-shrink-0">
-                                {{ company.initials }}
-                            </div>
-                        }
-                        <div>
-                            <h6 class="fw-semibold mb-0">{{ company.name }}</h6>
-                            <small class="text-warning">{{ company.role }}</small><br>
-                            <small class="">{{ company.period }}</small>
-                        </div>
-                    </div>
-
-                    <p class=" small flex-grow-1" style="line-height:1.7">{{ company.description }}</p>
-
-                    <button class="btn btn-outline-warning btn-sm mt-2 align-self-start"
-                        (click)="openModal(company)">
-                        View in Detail &nbsp;<i class="bi bi-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        }
+    <!-- Top bar -->
+    <div class="explorer-header p-3 pb-2">
+        <h2 class="section-title">Career Snapshot</h2>
+        <span class="gold-bar"></span>
     </div>
-</div>
 
-<!-- Detail Modal -->
-<div class="modal fade" tabindex="-1" #careerModal>
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content modal-dark border border-secondary border-opacity-25">
+    <div class="explorer-body">
 
-            <div class="modal-header border-0 pb-0 px-4 mb-2 pt-4">
-                <div>
-                    <h5 class="modal-title fw-bold mb-0 text-light">{{ selectedCompany?.name }}</h5>
-                    <small class="text-warning">{{ selectedCompany?.role }}</small>
-                    <span class=" small ms-2">· {{ selectedCompany?.period }}</span>
-                </div>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
+        <!-- LEFT: File tree -->
+        <div class="file-tree">
+            <div class="tree-label">EXPLORER</div>
 
-            <div class="modal-body p-0 d-flex" style="min-height: 420px;">
-
-                <!-- Folder sidebar -->
-                <div class="folder-sidebar p-3">
-                    @for (folder of selectedCompany?.folders; track folder.name) {
-                        <div class="mb-1">
-                            <div class="d-flex align-items-center gap-2 px-2 py-2 rounded folder-row"
-                                [ngClass]="{'folder-active': selectedFolder === folder}"
-                                (click)="selectFolder(folder)">
-                                <i class="bi small"
-                                    [ngClass]="selectedFolder === folder ? 'bi-folder2-open' : 'bi-folder2'"></i>
-                                <span class="small">{{ folder.name }}</span>
-                            </div>
-
-                            @if (selectedFolder === folder) {
-                                @for (file of folder.files; track file.name) {
-                                    <div class="d-flex align-items-center gap-2 px-2 py-1 ms-3 mt-2 mb-2 rounded file-row"
-                                        [ngClass]="{'file-active': selectedFile === file}"
-                                        (click)="selectFile(file)">
-                                        <i class="bi bi-file-earmark-text small"></i>
-                                        <span class="small">{{ file.name }}</span>
-                                    </div>
-                                }
-                            }
-                        </div>
-                    }
-                </div>
-
-                <!-- File content panel -->
-                <div class="flex-grow-1 p-4 overflow-auto">
-                    @if (selectedFile) {
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <i class="bi bi-file-earmark-text text-warning"></i>
-                            <h6 class="fw-semibold mb-0 text-light">{{ selectedFile.name }}</h6>
-                        </div>
-                        <hr class="border-secondary opacity-25 mt-0">
-                        <p class=" small" style="line-height:1.8">{{ selectedFile.content }}</p>
+            @for (company of companies; track company.name) {
+                <!-- Company row -->
+                <div class="tree-company" (click)="toggleCompany(company)">
+                    <i class="bi" [ngClass]="company.expanded ? 'bi-chevron-down' : 'bi-chevron-right'"></i>
+                    @if (company.logo) {
+                        <img [src]="company.logo" [alt]="company.name" class="tree-logo">
                     } @else {
-                        <div class="h-100 d-flex flex-column align-items-center justify-content-center">
-                            <i class="bi bi-folder2-open fs-1 mb-2 opacity-25"></i>
-                            <small>Select a file to view details</small>
-                        </div>
+                        <span class="tree-initials">{{ company.initials }}</span>
                     }
+                    <div class="tree-company-info">
+                        <span class="tree-company-name">{{ company.name }}</span>
+                        <span class="tree-company-period">{{ company.period }}</span>
+                    </div>
                 </div>
 
-            </div>
+                @if (company.expanded) {
+                    @for (folder of company.folders; track folder.name) {
+                        <!-- Folder row -->
+                        <div class="tree-folder" (click)="toggleFolder(folder)">
+                            <i class="bi" [ngClass]="folder.expanded ? 'bi-folder2-open' : 'bi-folder2'"></i>
+                            <span>{{ folder.name }}</span>
+                        </div>
+
+                        @if (folder.expanded) {
+                            @for (file of folder.files; track file.name) {
+                                <!-- File row -->
+                                <div class="tree-file"
+                                     [ngClass]="{'file-active': selectedFile === file}"
+                                     (click)="selectFile(file, company)">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    <span>{{ file.name }}</span>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
         </div>
+
+        <!-- RIGHT: Content panel -->
+        <div class="content-panel">
+            @if (selectedFile) {
+                <!-- breadcrumb -->
+                <div class="panel-breadcrumb">
+                    <span class="bc-company">{{ selectedCompany?.name }}</span>
+                    <i class="bi bi-chevron-right bc-sep"></i>
+                    <span class="bc-file">{{ selectedFile.name }}</span>
+                </div>
+                <div class="panel-divider"></div>
+                <p class="panel-text">{{ selectedFile.content }}</p>
+            } @else {
+                <div class="panel-empty">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>Select a file to read the details</span>
+                </div>
+            }
+        </div>
+
     </div>
 </div>

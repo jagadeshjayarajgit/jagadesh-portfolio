@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PERSONAL } from '../../data/personal.data';
 
 @Component({
   selector: 'app-contact-page',
@@ -12,10 +13,10 @@ export class ContactPageComponent {
   copied: 'email' | 'phone' | null = null;
   sent = false;
 
-  readonly email = 'jagadeshjayaraj11@gmail.com';
-  readonly phone = '9841735345';
-  readonly whatsapp = 'https://wa.me/919841735345';
-  readonly linkedin = 'https://linkedin.com/in/jagadesh';
+  readonly email = PERSONAL.email;
+  readonly phone = PERSONAL.phone;
+  readonly whatsapp = PERSONAL.whatsapp;
+  readonly linkedin = PERSONAL.linkedin;
 
   copy(type: 'email' | 'phone', value: string) {
     navigator.clipboard.writeText(value).then(() => {

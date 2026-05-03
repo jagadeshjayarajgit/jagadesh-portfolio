@@ -228,10 +228,11 @@
   align-items: center;
   gap: 3px;
   cursor: pointer;
-  padding: 6px 20px;
+  padding: 6px 8px;
   border-radius: 10px;
   transition: color 0.2s, transform 0.2s;
   font-family: inherit;
+  flex: 1;
 }
 
 .bottom-nav-btn i {
@@ -253,4 +254,20 @@
 
 .bottom-nav-btn:hover {
   color: #ffc107;
+}
+
+/* AI Stack button — subtle warm tint */
+.bottom-nav-btn.ai-btn {
+  background: linear-gradient(180deg,
+    rgba(255,193,7,0.05) 0%,
+    rgba(204,120,92,0.06) 100%);
+  border-radius: 10px;
+}
+
+.bottom-nav-btn.ai-btn.active,
+.bottom-nav-btn.ai-btn:hover {
+  color: #ffc107;
+  background: linear-gradient(180deg,
+    rgba(255,193,7,0.14) 0%,
+    rgba(204,120,92,0.1) 100%);
 }

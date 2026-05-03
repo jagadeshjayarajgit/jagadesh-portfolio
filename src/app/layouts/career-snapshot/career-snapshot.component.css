@@ -1,76 +1,247 @@
-.section-title { font-size: 16px; }
-
-.gold-bar {
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--gold);
-    margin-bottom: 25px;
+/* ── Outer wrapper ── */
+.explorer-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
 }
 
-/* Company card */
-.company-card {
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: border-color 0.25s, box-shadow 0.25s;
+.explorer-header {
+    flex-shrink: 0;
 }
 
-.company-card:hover {
-    border-color: rgba(255, 193, 7, 0.4);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+/* ── Main split ── */
+.explorer-body {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    height: calc(100vh - 260px);
+    min-height: 380px;
 }
 
-.company-logo {
-    width: 52px;
-    height: 52px;
+/* ── LEFT: File tree ── */
+.file-tree {
+    width: 240px;
+    min-width: 200px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    padding: 8px 0 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 193, 7, 0.2) transparent;
+}
+
+.file-tree::-webkit-scrollbar { width: 3px; }
+.file-tree::-webkit-scrollbar-thumb { background: rgba(255, 193, 7, 0.2); border-radius: 3px; }
+
+.tree-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    padding: 0 14px 8px;
+    text-transform: uppercase;
+}
+
+/* Company row */
+.tree-company {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: background 0.15s;
+    user-select: none;
+}
+
+.tree-company:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tree-company > .bi-chevron-down,
+.tree-company > .bi-chevron-right {
+    font-size: 10px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.tree-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
     object-fit: contain;
     background: #fff;
-    padding: 4px;
     flex-shrink: 0;
 }
 
-.company-initials {
-    width: 52px;
-    height: 52px;
-    font-size: 16px;
+.tree-initials {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background: rgba(255, 193, 7, 0.15);
     color: var(--gold);
-    background-color: rgba(255, 193, 7, 0.12);
-    border: 1px solid rgba(255, 193, 7, 0.3);
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
-/* Modal */
-.modal-dark {
-    background-color: #1c1c1c;
+.tree-company-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.tree-company-name {
+    font-size: 12px;
+    font-weight: 600;
     color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Folder sidebar */
-.folder-sidebar {
-    width: 220px;
-    min-width: 220px;
-    border-right: 1px solid rgba(255, 255, 255, 0.07);
-    background-color: rgba(0, 0, 0, 0.25);
-    overflow-y: auto;
+.tree-company-period {
+    font-size: 10px;
+    color: var(--gold);
+    opacity: 0.7;
 }
 
-.folder-row, .file-row {
+/* Folder row */
+.tree-folder {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px 5px 28px;
     cursor: pointer;
     color: var(--text-muted);
+    font-size: 12px;
     transition: background 0.15s, color 0.15s;
+    user-select: none;
 }
 
-.folder-row:hover, .file-row:hover {
-    background-color: rgba(255, 255, 255, 0.06);
+.tree-folder:hover {
+    background: rgba(255, 255, 255, 0.04);
     color: var(--text-light);
 }
 
-.folder-active {
-    background-color: rgba(255, 193, 7, 0.1) !important;
-    color: var(--gold) !important;
+.tree-folder .bi {
+    font-size: 13px;
+    color: rgba(255, 193, 7, 0.55);
+    flex-shrink: 0;
 }
 
-.file-active {
-    background-color: rgba(255, 193, 7, 0.07) !important;
-    color: var(--gold) !important;
+/* File row */
+.tree-file {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px 5px 44px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 12px;
+    border-left: 2px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+}
+
+.tree-file:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-light);
+}
+
+.tree-file .bi {
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.tree-file.file-active {
+    background: rgba(255, 193, 7, 0.08);
+    color: var(--gold);
+    border-left-color: var(--gold);
+}
+
+/* ── RIGHT: Content panel ── */
+.content-panel {
+    flex: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 193, 7, 0.2) transparent;
+}
+
+.content-panel::-webkit-scrollbar { width: 4px; }
+.content-panel::-webkit-scrollbar-thumb { background: rgba(255, 193, 7, 0.2); border-radius: 4px; }
+
+.panel-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.bc-company {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.bc-sep {
+    font-size: 10px;
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
+.bc-file {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.panel-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 16px;
+}
+
+.panel-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.panel-empty {
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 13px;
+}
+
+.panel-empty .bi {
+    font-size: 32px;
+}
+
+/* ── Responsive: stack on small screens ── */
+@media (max-width: 600px) {
+    .explorer-body {
+        flex-direction: column;
+    }
+
+    .file-tree {
+        width: 100%;
+        min-width: unset;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        max-height: 220px;
+    }
 }

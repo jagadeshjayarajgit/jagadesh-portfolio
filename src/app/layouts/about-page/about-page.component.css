@@ -1,70 +1,64 @@
-/* Content Component Styles */
-
-
-.section-title {
-    font-size: 16px;
-    font-weight: 700;
+.content-section {
+    padding: 32px 32px 40px;
 }
 
-.gold-bar {
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--gold);
-    margin-bottom: 25px;
-}
-
-.main-text {
-    color: var(--text-muted);
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 30px;
-}
-
-.service-card {
-    background-color: rgba(0, 0, 0, 0.2);
+/* ── Stats strip ── */
+.stats-strip {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 25px;
-    margin-bottom: 20px;
-    height: 100%;
+    padding: 18px 24px;
+    flex-wrap: wrap;
+    row-gap: 14px;
+    margin-bottom: 8px;
 }
 
-.service-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 15px;
-}
-
-.service-icon i {
-    color: var(--gold);
-    font-size: 24px;
-}
-
-.service-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.service-description {
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-.testimonial-section {
-    margin-top: 60px;
-}
-
-.testimonial-card {
+.stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
+    min-width: 72px;
 }
 
-/* Timeline */
+.stat-num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-lbl {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+/* ── About text ── */
+.main-text {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+/* ── Timeline ── */
 .timeline {
     position: relative;
     padding-left: 56px;
+    margin-top: 4px;
 }
 
 .timeline::before {
@@ -74,14 +68,14 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .timeline-item {
     position: relative;
     display: flex;
     align-items: flex-start;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
 }
 
 .timeline-dot {
@@ -99,13 +93,8 @@
     flex-shrink: 0;
 }
 
-.dot-work {
-    border-color: #198754;
-}
-
-.dot-edu {
-    border-color: #0d6efd;
-}
+.dot-work  { border-color: #198754; }
+.dot-edu   { border-color: #0d6efd; }
 
 .dot-logo {
     width: 34px;
@@ -115,62 +104,37 @@
 }
 
 .timeline-content {
-    background-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
-    padding: 16px 20px;
+    padding: 14px 18px;
     width: 100%;
+    border: 1px solid var(--border-color);
 }
 
-.testimonial-avatar {
-    width: 80px;
-    height: 80px;
-    background-color: #333;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.testimonial-name {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.service-margin{
-   margin-top: 20px;
-}
-
-.img-size{
-    max-width: 100px;
-    border-radius: 20px;
-}
-
-.designation-colour{
-    background-color: #10a64a !important;
-}
-
+/* ── Tech chips ── */
 .tech-chip {
-    background-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    padding: 8px 16px;
+    padding: 7px 14px;
     cursor: default;
-    transition: border-color 0.25s, box-shadow 0.25s;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
 }
 
 .tech-chip:hover {
     border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.18);
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.2);
+    transform: translateY(-2px);
 }
 
 .tech-chip-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
 .tech-chip-name {
-    font-size: 0.875rem;
+    font-size: 13px;
     color: var(--text-light);
     white-space: nowrap;
 }

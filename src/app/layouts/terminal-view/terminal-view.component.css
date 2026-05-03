@@ -1,14 +1,3 @@
-.section-title { font-size: 16px; font-weight: 700; color: #e0e0e0; }
-
-.gold-bar {
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #ffc107;
-  margin-bottom: 20px;
-}
-
-.sub-text { color: #aaaaaa; font-size: 14px; margin-bottom: 20px; }
 .sub-text code { color: #ffc107; background: rgba(255,193,7,0.08); padding: 1px 6px; border-radius: 4px; }
 
 /* ── Terminal wrapper ── */
