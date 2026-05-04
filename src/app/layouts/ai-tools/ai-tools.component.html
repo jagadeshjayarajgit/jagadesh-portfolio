@@ -16,21 +16,15 @@
 
   <!-- Category legend -->
   <div class="legend fade-in-up delay-1">
-    <span class="legend-chip code">Code</span>
-    <span class="legend-chip research">Research</span>
-    <span class="legend-chip design">Design</span>
+    <span class="legend-chip">Code</span>
+    <span class="legend-chip">Research</span>
+    <span class="legend-chip">Design</span>
   </div>
 
   <!-- Tool cards grid -->
   <div class="tools-grid">
     @for (tool of tools; track tool.name; let i = $index) {
-      <div class="tool-card fade-in-up"
-           [class]="'delay-' + (i + 2)"
-           [style.--tool-color]="tool.color"
-           [style.--tool-glow]="tool.glow">
-
-        <!-- Accent bar -->
-        <div class="card-accent-bar"></div>
+      <div class="tool-card fade-in-up" [class]="'delay-' + (i + 2)">
 
         <div class="card-body-inner">
 
@@ -48,12 +42,7 @@
 
           <!-- Category + usage row -->
           <div class="badge-row">
-            <span class="cat-badge"
-                  [style.color]="categoryColors[tool.category]"
-                  [style.background]="'rgba(0,0,0,0.0)'"
-                  [style.borderColor]="categoryColors[tool.category] + '44'">
-              {{ tool.category }}
-            </span>
+            <span class="cat-badge">{{ tool.category }}</span>
             <span class="usage-badge" [ngClass]="usageBadgeClass(tool.usage)">
               {{ tool.usage }}
             </span>

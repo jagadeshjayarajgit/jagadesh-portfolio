@@ -38,8 +38,8 @@
   color: var(--gold);
 }
 
-.quick-icon.whatsapp { color: #25d366; }
-.quick-icon.linkedin { color: #0a66c2; }
+.quick-icon.whatsapp { color: var(--gold); }
+.quick-icon.linkedin { color: var(--gold); }
 
 .quick-info {
   flex: 1;

@@ -9,11 +9,7 @@
     @for (s of socials; track s.platform; let i = $index) {
       <a [href]="s.url" target="_blank" rel="noopener noreferrer"
          class="social-card fade-in-up"
-         [class]="'delay-' + (i + 2)"
-         [style.--platform-color]="s.color"
-         [style.--platform-glow]="s.glow">
-
-        <div class="card-top-bar"></div>
+         [class]="'delay-' + (i + 2)">
 
         <div class="card-inner">
           <div class="card-icon">
@@ -74,7 +70,7 @@
     </div>
 
     <a class="quick-card" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
-      <div class="quick-icon whatsapp"><i class="bi bi-whatsapp"></i></div>
+      <div class="quick-icon"><i class="bi bi-whatsapp"></i></div>
       <div class="quick-info">
         <span class="quick-label">WhatsApp</span>
         <span class="quick-value">Chat directly</span>
@@ -83,7 +79,7 @@
     </a>
 
     <a class="quick-card" [href]="linkedin" target="_blank" rel="noopener noreferrer">
-      <div class="quick-icon linkedin"><i class="bi bi-linkedin"></i></div>
+      <div class="quick-icon"><i class="bi bi-linkedin"></i></div>
       <div class="quick-info">
         <span class="quick-label">LinkedIn</span>
         <span class="quick-value">Connect professionally</span>

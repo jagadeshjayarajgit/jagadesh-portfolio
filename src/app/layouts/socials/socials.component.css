@@ -11,11 +11,9 @@
 
 /* ── Social card ── */
 .social-card {
-  position: relative;
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--border-radius);
-  overflow: hidden;
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -24,23 +22,11 @@
 }
 
 .social-card:hover {
-  border-color: var(--platform-color);
-  box-shadow: 0 0 28px var(--platform-glow), 0 8px 24px rgba(0,0,0,0.4);
-  transform: translateY(-4px);
+  border-color: rgba(255, 193, 7, 0.35);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
   text-decoration: none;
   color: inherit;
-}
-
-/* Coloured accent line at top */
-.card-top-bar {
-  height: 3px;
-  background: var(--platform-color);
-  opacity: 0.6;
-  transition: opacity 0.25s;
-}
-
-.social-card:hover .card-top-bar {
-  opacity: 1;
 }
 
 /* Inner padding */
@@ -56,29 +42,17 @@
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
 .card-icon i {
   font-size: 24px;
-  color: var(--text-muted);
-  transition: color 0.25s;
-}
-
-.social-card:hover .card-icon {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: var(--platform-color);
-  box-shadow: 0 0 14px var(--platform-glow);
-}
-
-.social-card:hover .card-icon i {
-  color: var(--platform-color);
+  color: var(--gold);
 }
 
 /* Platform + handle */
@@ -91,11 +65,6 @@
   font-weight: 700;
   color: var(--text-light);
   margin-bottom: 2px;
-  transition: color 0.25s;
-}
-
-.social-card:hover .card-platform {
-  color: var(--platform-color);
 }
 
 .card-handle {
@@ -111,10 +80,7 @@
   line-height: 1.65;
   flex: 1;
   margin-bottom: 16px;
-  transition: color 0.25s;
 }
-
-.social-card:hover .card-desc { color: #888; }
 
 /* Footer CTA */
 .card-footer {
@@ -130,7 +96,7 @@
 .card-arrow { font-size: 13px; transition: transform 0.25s; }
 
 .social-card:hover .card-footer {
-  color: var(--platform-color);
+  color: var(--gold);
   gap: 9px;
 }
 
@@ -170,7 +136,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,9 +145,6 @@
   font-size: 17px;
   color: var(--gold);
 }
-
-.quick-icon.whatsapp { color: #25d366; }
-.quick-icon.linkedin { color: #0a66c2; }
 
 .quick-info {
   flex: 1;

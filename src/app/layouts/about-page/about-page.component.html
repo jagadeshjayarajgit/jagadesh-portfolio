@@ -1,28 +1,4 @@
 <div class="content-section">
-
-    <!-- Stats strip -->
-    <div class="stats-strip fade-in-up">
-        <div class="stat-item">
-            <span class="stat-num">1+</span>
-            <span class="stat-lbl">Year of XP</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num">4+</span>
-            <span class="stat-lbl">Projects shipped</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num">500+</span>
-            <span class="stat-lbl">Healthcare pros served</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-            <span class="stat-num">6</span>
-            <span class="stat-lbl">Technologies</span>
-        </div>
-    </div>
-
     <!-- About -->
     <div class="fade-in-up delay-1">
         <h2 class="section-title mt-4">About Me</h2>
@@ -57,10 +33,10 @@
                                 [ngClass]="item.type === 'work' ? 'bg-success' : 'bg-primary'">
                                 {{ item.period }}
                             </span>
-                            <span class="small text-muted">{{ item.subtitle }}</span>
+                            <span class="small">{{ item.subtitle }}</span>
                         </div>
                         <h5 class="fw-semibold mb-1">{{ item.title }}</h5>
-                        <p class="small mb-0 text-muted">{{ item.description }}</p>
+                        <p class="small mb-0">{{ item.description }}</p>
                     </div>
                 </div>
             }
