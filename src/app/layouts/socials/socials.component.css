@@ -1,107 +1,72 @@
 /* ── Social card grid ── */
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
-@media (max-width: 540px) {
-  .social-grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── Social card ── */
 .social-card {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-}
-
-.social-card:hover {
-  border-color: rgba(255, 193, 7, 0.35);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
   text-decoration: none;
   color: inherit;
 }
 
-/* Inner padding */
-.card-inner {
-  padding: 20px 20px 18px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-/* Icon */
-.card-icon {
-  width: 52px;
-  height: 52px;
+/* Preview box */
+.card-preview {
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
-  background: rgba(255, 193, 7, 0.08);
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-}
-
-.card-icon i {
-  font-size: 24px;
-  color: var(--gold);
-}
-
-/* Platform + handle */
-.card-meta {
   margin-bottom: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
 }
 
-.card-platform {
-  font-size: 15px;
-  font-weight: 700;
+.card-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 60%, rgba(255, 193, 7, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.social-card:hover .card-preview {
+  border-color: rgba(255, 193, 7, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.preview-icon {
+  font-size: 32px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+/* ── Text below card ── */
+.card-label {
+  padding: 0 2px;
+}
+
+.platform-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--text-light);
   margin-bottom: 2px;
 }
 
-.card-handle {
-  font-size: 12px;
-  color: var(--text-muted);
+.platform-handle {
   display: block;
-}
-
-/* Description */
-.card-desc {
-  font-size: 12.5px;
-  color: #666;
-  line-height: 1.65;
-  flex: 1;
-  margin-bottom: 16px;
-}
-
-/* Footer CTA */
-.card-footer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #555;
-  transition: color 0.25s, gap 0.25s;
-}
-
-.card-arrow { font-size: 13px; transition: transform 0.25s; }
-
-.social-card:hover .card-footer {
-  color: var(--gold);
-  gap: 9px;
-}
-
-.social-card:hover .card-arrow {
-  transform: translate(2px, -2px);
+  font-size: 11.5px;
+  color: var(--text-muted);
 }
 
 /* ── Quick contact grid ── */
@@ -109,7 +74,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .quick-card {
@@ -133,8 +98,8 @@
 }
 
 .quick-icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   background: rgba(255, 193, 7, 0.08);
   border: 1px solid rgba(255, 193, 7, 0.15);
@@ -142,7 +107,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--gold);
 }
 
@@ -192,7 +157,7 @@
 /* ── Message form ── */
 .msg-section {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 28px;
+  padding-top: 24px;
 }
 
 .msg-title {

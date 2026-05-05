@@ -41,15 +41,6 @@ export class SocialsComponent {
       glow: 'rgba(10, 102, 194, 0.2)',
     },
     {
-      platform: 'Twitter / X',
-      handle: '@jagadeshj',
-      icon: 'bi-twitter-x',
-      description: 'Dev thoughts, tech takes and the occasional musing.',
-      url: PERSONAL.twitter,
-      color: '#e7e9ea',
-      glow: 'rgba(231, 233, 234, 0.12)',
-    },
-    {
       platform: 'LeetCode',
       handle: '@jagadeshj',
       icon: 'bi-code-slash',
