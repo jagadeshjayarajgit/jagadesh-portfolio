@@ -11,6 +11,6 @@ export const PERSONAL = {
   whatsapp: 'https://wa.me/919841735345',
   twitter: 'https://twitter.com/jagadeshj',
   leetcode: 'https://leetcode.com/u/Jagadesh11/',
-  resume: 'assets/img/JAGADESH RESUME.pdf',
+  resume: 'assets/img/JJagadesh_Resume.pdf',
   resumeDownloadName: 'Jagadesh_Resume.pdf',
 } as const;

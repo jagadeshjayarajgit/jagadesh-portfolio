@@ -23,7 +23,7 @@ personalDetails = [
 
 downloadResume() {
   const link = document.createElement('a');
-  link.href = 'assets/img/JAGADESH RESUME.pdf';
+  link.href = 'assets/img/Jagadesh_Resume.pdf';
   link.download = 'Jagadesh_Resume.pdf';
   link.click();
 }
