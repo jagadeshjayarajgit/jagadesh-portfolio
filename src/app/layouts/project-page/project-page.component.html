@@ -3,70 +3,33 @@
     <span class="gold-bar fade-in-up delay-1"></span>
     <p class="sub-text fade-in-up delay-1">Things I've built — from hospital ops to blockchain research.</p>
 
-    <div class="row g-4 mt-1">
+    <div class="projects-grid">
+        @for (project of projects; track project.name; let i = $index) {
+            <div class="project-item fade-in-up" [class]="'delay-' + (i + 2)">
 
-        <div class="col-md-6 fade-in-up delay-2">
-            <div class="project-card h-100 d-flex flex-column">
-                <div class="project-img-wrap">
-                    <img src="assets/img/dashboard_2328966.png" alt="Hospital Information System">
+                <!-- Preview image -->
+                <div class="preview-wrap">
+                    @if (project.url) {
+                        <a [href]="project.url" target="_blank" rel="noopener noreferrer" class="preview-link">
+                            <img [src]="project.image" [alt]="project.name" class="preview-img">
+                            <div class="preview-overlay">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </a>
+                    } @else {
+                        <div class="preview-link">
+                            <img [src]="project.image" [alt]="project.name" class="preview-img">
+                        </div>
+                    }
                 </div>
-                <div class="project-body">
-                    <h5 class="project-title">Hospital Information System</h5>
-                    <p class="project-desc">
-                        Internal application enabling the hospital to manage operations, payments, and
-                        patient records end-to-end across the corporate network.
-                    </p>
-                    <div class="tag-row">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
+
+                <!-- Text below image -->
+                <div class="project-label">
+                    <span class="project-name">{{ project.name }}</span>
+                    <span class="project-category">{{ project.category }}</span>
                 </div>
+
             </div>
-        </div>
-
-        <div class="col-md-6 fade-in-up delay-3">
-            <div class="project-card h-100 d-flex flex-column">
-                <div class="project-img-wrap">
-                    <img src="assets/img/health-report.png" alt="Digital Patient Report">
-                </div>
-                <div class="project-body">
-                    <h5 class="project-title">Digital Patient Report (PWA)</h5>
-                    <p class="project-desc">
-                        Progressive Web App that lets patients access health reports securely on any
-                        device. Cut retrieval times by 50% for 500+ healthcare professionals.
-                    </p>
-                    <div class="tag-row">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">PWA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 fade-in-up delay-4">
-            <div class="project-card h-100 d-flex flex-column">
-                <div class="project-img-wrap">
-                    <img src="assets/img/blockchain_7796730.png" alt="Blockchain Smart Home">
-                </div>
-                <div class="project-body">
-                    <h5 class="project-title">Secure Smart Home with Blockchain</h5>
-                    <p class="project-desc">
-                        College project integrating blockchain and cryptographic hash algorithms to create
-                        tamper-proof logs of IoT device activity in smart homes.
-                    </p>
-                    <div class="tag-row">
-                        <span class="tech-tag">Blockchain</span>
-                        <span class="tech-tag">IoT</span>
-                        <span class="tech-tag">Cryptography</span>
-                        <span class="tech-tag">Java</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        }
     </div>
 </div>
