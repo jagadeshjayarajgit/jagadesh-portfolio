@@ -51,4 +51,18 @@
         </div>
     </div>
 
+        <div class="fade-in-up delay-4 mt-4">
+        <h2 class="section-title">AI Stack</h2>
+        <span class="gold-bar"></span>
+
+        <div class="d-flex flex-wrap gap-3 mt-3">
+            @for (ai of aiStack; track ai.name) {
+                <div class="tech-chip d-flex align-items-center gap-2">
+                    <img [src]="ai.icon" [alt]="ai.name" class="tech-chip-icon">
+                    <span class="tech-chip-name">{{ ai.name }}</span>
+                </div>
+            }
+        </div>
+    </div>
+
 </div>

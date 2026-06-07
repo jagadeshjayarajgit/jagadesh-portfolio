@@ -19,6 +19,12 @@ export class AboutPageComponent {
     { name: 'CSS',         icon: 'assets/img/css-3.png' },
   ];
 
+  aiStack = [
+    { name: 'Claude Code', icon: 'assets/img/claude-code-logo.png' },
+    { name: 'Codex', icon: 'assets/img/openai-light.png' },
+    {name : 'Cursor', icon:'assets/img/cursor-dark.png'}
+  ]
+
   timeline = [
     {
       period: '2024 - Present',
