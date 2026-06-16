@@ -14,6 +14,7 @@ export class AboutPageComponent {
     { name: 'Java',        icon: 'assets/img/java.png' },
     { name: 'Spring Boot', icon: 'assets/img/icons8-spring-boot-48.png' },
     { name: 'Angular',     icon: 'assets/img/programing.png' },
+    { name: 'TypeScript',  icon: 'assets/img/typescript.png' },
     { name: 'JavaScript',  icon: 'assets/img/java-script.png' },
     { name: 'HTML',        icon: 'assets/img/htmlicon.png' },
     { name: 'CSS',         icon: 'assets/img/css-3.png' },
@@ -21,30 +22,38 @@ export class AboutPageComponent {
 
   aiStack = [
     { name: 'Claude Code', icon: 'assets/img/claude-code-logo.png' },
-    { name: 'Codex', icon: 'assets/img/openai-light.png' },
-    {name : 'Cursor', icon:'assets/img/cursor-dark.png'}
-  ]
+    { name: 'Codex',       icon: 'assets/img/openai-light.png' },
+    { name: 'Cursor',      icon: 'assets/img/cursor-dark.png' },
+  ];
 
   timeline = [
     {
-      period: '2024 - Present',
+      period: 'Apr 2024 – Present',
       title: 'Software Developer',
-      subtitle: 'Dr. Agarwals Eye Hospital, Corporate Office',
-      description: 'Currently working as a Software Developer, gaining hands-on experience in building scalable web applications for hospital operations.',
+      subtitle: 'Dr. Agarwal\'s Health Care Limited, Chennai',
+      description: 'Building enterprise healthcare software across patient management, clinical workflows, and multi-role hospital operations. Migrated 3 legacy systems to Spring Boot microservices + Angular, engineered a PWA cutting report retrieval by 50% for 500+ professionals, and currently developing a single-page EMR system.',
       logo: 'assets/img/drlogo.jpeg',
-      logoAlt: 'AgarwalsLogo',
+      logoAlt: 'Agarwals Logo',
       type: 'work'
     },
     {
-      period: '2020 - 2024',
-      title: 'Under Graduate — B.Tech CSE',
-      subtitle: 'SRM University',
-      description: 'Completed B.Tech in Computer Science and Engineering with First Class Distinction.',
+      period: 'Jan 2024 – Apr 2024',
+      title: 'Software Developer Intern',
+      subtitle: 'bridgelabz',
+      description: 'Completed an intensive Java backend training program, building foundational skills in Spring Boot, microservices architecture, OOP principles, SOLID design, and SQL data modeling through structured assignments and hands-on exercises.',
+      logo: null,
+      logoAlt: 'BridgeLabz',
+      type: 'work'
+    },
+    {
+      period: '2020 – 2024',
+      title: 'B.Tech — Computer Science & Engineering',
+      subtitle: 'SRM Institute of Science and Technology, Chennai',
+      description: 'Bachelor of Technology in Computer Science and Engineering. CGPA: 8.5 / 10.0. Final year project: Secure Smart Home Data Using Blockchain Technology with Hash Algorithm.',
       logo: 'assets/img/srmLogo.png',
       logoAlt: 'SRM Logo',
       type: 'education'
     },
-    
   ];
 
 }

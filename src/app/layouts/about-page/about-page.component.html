@@ -4,7 +4,7 @@
         <h2 class="section-title">About Me</h2>
         <span class="gold-bar"></span>
         <p class="main-text">
-            I'm a Software Developer at Dr. Agarwal's Eye Hospital (Corporate Office) with 2 years of experience building web applications that support a large hospital network — from patient records and inventory management to role-based approval systems. I enjoy solving real-world problems through code and am always eager to learn new technologies. I work well in collaborative environments and believe that good software comes from understanding both the technical requirements and the people who use it.
+            Software developer with 2 years of experience building enterprise web applications that support a large hospital network spanning patient records, inventory management, and role-based approval systems. Proficient in Java, Spring Boot, Angular, and microservices architecture, with a track record of delivering measurable impact — including a 50% improvement in report retrieval for 500+ healthcare professionals.
         </p>
     </div>
 
@@ -18,7 +18,11 @@
                 <div class="timeline-item fade-in-up" [class]="'delay-' + (i + 3)">
                     <div class="timeline-dot"
                         [ngClass]="item.type === 'work' ? 'dot-work' : 'dot-edu'">
-                        <img [src]="item.logo" [alt]="item.logoAlt" class="dot-logo">
+                        @if (item.logo) {
+                            <img [src]="item.logo" [alt]="item.logoAlt" class="dot-logo">
+                        } @else {
+                            <span class="dot-initials">{{ item.logoAlt.slice(0,2).toUpperCase() }}</span>
+                        }
                     </div>
                     <div class="timeline-content ms-4 ms-md-5">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-1">

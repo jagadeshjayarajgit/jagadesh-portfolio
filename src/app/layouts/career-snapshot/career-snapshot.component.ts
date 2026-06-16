@@ -35,8 +35,8 @@ export class CareerSnapshotComponent implements OnInit {
   selectedCompany: Company | null = null;
 
   companies: Company[] = [
-   {
-      name: "Dr. Agarwal's Eye Hospital",
+    {
+      name: "Dr. Agarwal's Health Care Limited",
       role: 'Software Developer',
       period: 'Apr 2024 – Present',
       logo: 'assets/img/drlogo.jpeg',
@@ -48,21 +48,25 @@ export class CareerSnapshotComponent implements OnInit {
           expanded: true,
           files: [
             {
-              name: 'PWA – Patient Report',
-              content: 'Built a Progressive Web App that helps healthcare professionals access patient reports quickly and reliably. The app works offline and loads faster than the previous system, which has been particularly helpful for doctors and nurses who need information on the go.\n\nThe system now serves over 500 healthcare professionals across our hospital network. By optimizing data retrieval and caching strategies, we managed to cut report loading times in half. It has been rewarding to see how these improvements help staff spend less time waiting and more time with patients.'
+              name: 'Legacy System Migration',
+              content: 'Contributed to migrating 3 legacy systems — Patient Reports, Penta, and YPP Billings — from .NET/PHP monoliths to a Spring Boot microservices backend and Angular frontend over 18 months.\n\nEliminated system crashes on large report loads by converting synchronous APIs to asynchronous architecture, resulting in a significantly more stable and scalable platform across the hospital network.'
+            },
+            {
+              name: 'Patient-Facing Visit App',
+              content: 'Deployed a patient-facing web app for on-demand access to visit reports and medical records across all Dr. Agarwal\'s hospital branches.\n\nReduced dependency on front-desk staff for report retrieval, enabling patients to independently access their health information at any time from any device.'
             },
             {
               name: 'Hospital Management System',
-              content: 'Worked on developing a comprehensive management system that handles day to day hospital operations. This includes managing inventory and stock levels, tracking patient journeys from outpatient to inpatient care, and implementing approval workflows that respect the hospital\'s organizational hierarchy.\n\nThe system uses role based access controls to ensure that staff members can only see and modify information relevant to their responsibilities. This has helped streamline operations while maintaining security and accountability. I collaborated closely with different departments to understand their workflows and build features that actually fit how they work.'
+              content: 'Built a Hospital Management System digitizing workflows for 10+ hospital roles, replacing entirely paper-based processes for approvals, refunds, IP bookings, insurance pre-auth, and inventory tracking.\n\nThe system enforces role-based access controls ensuring each staff role sees only what is relevant to their responsibilities, improving both security and operational efficiency.'
             },
             {
-              name: 'EMR System',
-              content: 'Currently developing an Electronic Medical Records system designed specifically for doctors and clinical staff. The goal is to make digital documentation as intuitive as possible, so doctors can focus on patient care rather than struggling with software.\n\nThe system allows structured recording of patient encounters, medical history, diagnosis, and treatment plans. I am working with medical professionals to understand their documentation needs and build interfaces that feel natural to them. It is still a work in progress, but early feedback from the pilot users has been encouraging.'
+              name: 'EMR System (In Progress)',
+              content: 'Currently developing a single-page EMR system for the entire Dr. Agarwal\'s network, consolidating fragmented workflows into a unified past/present view to reduce consultation documentation time.\n\nWorking closely with doctors and clinical staff to design interfaces that feel natural during consultations, making digital documentation as low-friction as possible.'
             },
             {
-              name: 'Digital Patient Visit App',
-              content: 'Created a mobile friendly web application that gives patients easy access to their visit records and medical summaries. Patients can now review their reports, prescriptions, and test results from their phones whenever they need them, without having to call the hospital or visit in person.\n\nThe app was designed with simplicity in mind, as many of our patients are not tech savvy. We focused on clear layouts, readable fonts, and straightforward navigation. It has been nice to hear from patients who appreciate being able to access their health information independently.'
-            }
+              name: 'PWA – Patient Report',
+              content: 'Engineered a Progressive Web App for patient report management, cutting report retrieval time by 50% for 500+ healthcare professionals across the hospital network.\n\nThe app works offline and leverages caching strategies to ensure fast, reliable access even in low-connectivity environments — particularly important for clinical staff on the move.'
+            },
           ]
         },
         {
@@ -70,23 +74,23 @@ export class CareerSnapshotComponent implements OnInit {
           expanded: true,
           files: [
             {
-              name: 'System Migration',
-              content: 'Led the migration of several legacy systems to a more modern technology stack. On the backend, we upgraded to Java 8 with Spring Boot, restructuring the code to follow SOLID principles. This made the codebase easier to maintain and extend as requirements evolve.\n\nFor the frontend, we rebuilt the user interface using Angular 18 with Redux for state management. The new architecture loads faster and provides a smoother user experience. The migration was challenging since we had to ensure zero downtime and no data loss, but careful planning and phased rollouts helped us pull it off successfully.'
-            },
-            {
-              name: 'REST APIs & Microservices',
-              content: 'Developed RESTful APIs as part of our microservices architecture using Spring Boot, Hibernate, and JPA. Each service is designed to handle a specific domain, which makes the system more modular and easier to scale as the hospital grows.\n\nI focused on writing clean, well documented APIs that other developers can easily work with. Proper use of HTTP methods, status codes, and error handling has made integration smoother across teams. Working with microservices taught me a lot about designing for failure and ensuring services communicate reliably even when parts of the system are under heavy load.'
+              name: 'Microservices Architecture',
+              content: 'Designed and built RESTful APIs as part of a microservices architecture using Spring Boot, Hibernate, and JPA. Each service is scoped to a specific domain, making the overall system modular and independently scalable.\n\nFocused on clean API contracts, proper HTTP semantics, and consistent error handling to ensure smooth integration across services and teams.'
             },
             {
               name: 'Authentication & Security',
-              content: 'Implemented authentication mechanisms to keep patient and hospital data secure. This includes OTP based verification using Redis for session management, along with Spring Security configurations that enforce proper access controls throughout the application.\n\nEvery module has role based permissions, so users only see and access what they are authorized for. Security is especially important in healthcare, so I made sure to follow best practices around password handling, session timeouts, and secure API communication. It has been a learning experience balancing security requirements with user convenience.'
+              content: 'Implemented Spring Security with JWT-based authentication and role-based access control across all modules, ensuring patient and hospital data remains protected.\n\nAdditionally configured OTP-based verification using Redis for session management, balancing strong security requirements with a smooth user experience for clinical staff.'
+            },
+            {
+              name: 'Async API Conversion',
+              content: 'Converted synchronous report-loading APIs to asynchronous architecture as part of the legacy migration initiative.\n\nThis change directly eliminated the system crashes that occurred under heavy load — a critical improvement given the hospital\'s scale and the real-time demands of clinical operations.'
             }
           ]
         }
       ]
     },
     {
-      name: 'BridgeLabz',
+      name: 'bridgelabz',
       role: 'Software Developer Intern',
       period: 'Jan 2024 – Apr 2024',
       logo: null,
@@ -94,23 +98,54 @@ export class CareerSnapshotComponent implements OnInit {
       expanded: true,
       folders: [
         {
-          name: 'Work Done',
+          name: 'Training',
           expanded: true,
           files: [
             {
+              name: 'Java Backend Program',
+              content: 'Completed an intensive Java backend training program, building foundational skills in Spring Boot, microservices architecture, OOP principles, SOLID design, and SQL data modeling through structured assignments and hands-on exercises.\n\nThe program covered the full backend development lifecycle — from designing database schemas and writing optimized SQL queries to building service endpoints and wiring them together using Spring\'s dependency injection.'
+            },
+            {
               name: 'OOP & SOLID Principles',
-              content: 'Spent time learning and applying Object Oriented Programming concepts and SOLID principles through various training modules. I worked on refactoring existing code to make it more maintainable and easier for others to understand.\n\nUsed Java Collections and Streams to simplify complex logic and improve code readability. It was a great opportunity to build a strong foundation in writing clean, functional code. The training emphasized not just making code work, but making it work well and last long.'
+              content: 'Applied Object-Oriented Programming concepts and SOLID principles through refactoring exercises and design challenges. Worked on structuring code for maintainability, extensibility, and readability.\n\nUsed Java Collections and Streams to simplify complex logic and reduce boilerplate, building habits that carry directly into production-grade development.'
             },
             {
               name: 'RESTful Microservices',
-              content: 'Contributed to building RESTful microservices using Spring Boot. My work included designing service endpoints, implementing business logic, and connecting services to the database layer.\n\nI also worked on SQL data modeling, creating efficient database schemas and writing optimized queries. This internship taught me how backend services come together in a real application and gave me hands on experience with the full development cycle from design to deployment. The mentorship I received here was invaluable in preparing me for professional development work.'
+              content: 'Built RESTful microservices using Spring Boot as part of training assignments, including designing service endpoints, implementing business logic, and connecting to the database layer using JPA and Hibernate.\n\nThis internship provided hands-on exposure to the full development cycle — from design to deployment — and prepared the groundwork for professional work at Dr. Agarwal\'s.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'SRM Institute of Science and Technology',
+      role: 'B.Tech — Computer Science & Engineering',
+      period: '2020 – 2024',
+      logo: 'assets/img/srmLogo.png',
+      initials: 'SR',
+      expanded: false,
+      folders: [
+        {
+          name: 'Academics',
+          expanded: true,
+          files: [
+            {
+              name: 'Degree & CGPA',
+              content: 'Bachelor of Technology (B.Tech) in Computer Science and Engineering from SRM Institute of Science and Technology, Chennai.\n\nCGPA: 8.5 / 10.0\nDuration: 2020 – 2024'
+            },
+            {
+              name: 'Final Year Project',
+              content: 'Secure Smart Home Data Using Blockchain Technology with Hash Algorithm.\n\nBuilt this project as part of the college curriculum to enhance data security in smart homes. By integrating blockchain and cryptographic hash algorithms, ensured tamper-proof logging of IoT device activities — making the system reliable and resistant to data manipulation.'
+            },
+            {
+              name: 'Certificates',
+              content: 'AWS Certified Cloud Practitioner\n\nCompleted the AWS Cloud Practitioner certification, gaining foundational knowledge of cloud computing concepts, core AWS services, security, architecture, pricing, and support.'
             }
           ]
         }
       ]
     }
   ];
-
 
   ngOnInit() {
     const firstCompany = this.companies[0];

@@ -103,6 +103,13 @@
     border-radius: 50%;
 }
 
+.dot-initials {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
 .timeline-content {
     background: rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
